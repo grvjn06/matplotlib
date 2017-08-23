@@ -1,0 +1,75 @@
+from sklearn.cluster import KMeans
+wcss = []
+for i in range(1,11):
+    kmeans = KMeans(n_clusters = i, init = 'k-means++', max_iter = 300, n_init = 10, random_state = 0)
+    kmeans.fit(X)
+    wcss.append(kmeans.inertia_)
+
+
+plt.plot(range(1,11),wcss)
+plt.title('Elbow method')
+plt.xlabel('Number of clusters')
+plt.ylabel('WCSS')
+plt.show()
+Traceback (most recent call last):
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/IPython/core/formatters.py", line 307, in __call__
+    return printer(obj)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/IPython/core/pylabtools.py", line 240, in <lambda>
+    png_formatter.for_type(Figure, lambda fig: print_figure(fig, 'png', **kwargs))
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/IPython/core/pylabtools.py", line 124, in print_figure
+    fig.canvas.print_figure(bytes_io, **kw)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/backend_bases.py", line 2200, in print_figure
+    **kwargs)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py", line 545, in print_png
+    FigureCanvasAgg.draw(self)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py", line 464, in draw
+    self.figure.draw(self.renderer)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/artist.py", line 63, in draw_wrapper
+    draw(artist, renderer, *args, **kwargs)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/figure.py", line 1144, in draw
+    renderer, self, dsu, self.suppressComposite)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/image.py", line 139, in _draw_list_compositing_images
+    a.draw(renderer)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/artist.py", line 63, in draw_wrapper
+    draw(artist, renderer, *args, **kwargs)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/axes/_base.py", line 2426, in draw
+    mimage._draw_list_compositing_images(renderer, self, dsu)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/image.py", line 139, in _draw_list_compositing_images
+    a.draw(renderer)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/artist.py", line 63, in draw_wrapper
+    draw(artist, renderer, *args, **kwargs)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/axis.py", line 1138, in draw
+    renderer)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/axis.py", line 1078, in _get_tick_bboxes
+    extent = tick.label1.get_window_extent(renderer)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/text.py", line 967, in get_window_extent
+    bbox, info, descent = self._get_layout(self._renderer)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/text.py", line 353, in _get_layout
+    ismath=False)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py", line 239, in get_text_width_height_descent
+    font = self._get_agg_font(prop)
+
+  File "/anaconda/anaconda/lib/python3.6/site-packages/matplotlib/backends/backend_agg.py", line 279, in _get_agg_font
+    hinting_factor=rcParams['text.hinting_factor'])
+
+RuntimeError: In FT2Font: Can not load face.
+
+<matplotlib.figure.Figure at 0x1207001d0>
